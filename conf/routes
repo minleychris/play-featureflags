@@ -5,5 +5,5 @@
 #
 # ~~~~
 
-GET         /?                  featureflags.Features.list
-GET         /{id}/flip          featureflags.Features.flip
+GET         /?                  featureflags.Features.adminPage
+GET         /{id}/switch        featureflags.Features.switchFeature

@@ -82,7 +82,7 @@
     <table id="featureTable">
 
         <thead>
-        <tr>
+        <tr>           
             <th scope="col" id="featureHeader">Feature</th>
             <th scope="col" id="statusHeader">Status</th>
             <th scope="col" id="changeHeader">Change status</th>
@@ -103,7 +103,7 @@
                 </div>
             </td>
             <td id="${feature.name}ChangeStatusTd">
-                <a id="${feature.name}Switcher" href="@{featureflags.Features.flip(feature.id)}">
+                <a id="${feature.name}Switcher" href="@{featureflags.Features.switchFeature(feature.id)}">
                     ${feature.enabled ? 'switch off' : 'switch on'}
                 </a>
             </td>

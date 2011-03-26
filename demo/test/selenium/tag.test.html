@@ -10,44 +10,43 @@
         // Verify that all the menu items are invisible
         open('/tagtest')
         waitForPageToLoad(1000)
-        assertElementNotPresent('sampleMenu1')
-        assertElementNotPresent('sampleMenu2')
-        assertElementNotPresent('sampleMenu3')
-        assertElementNotPresent('sampleMenu4')
+        assertElementNotPresent('tagTestMenu1')
+        assertElementNotPresent('tagTestMenu2')
+        assertElementNotPresent('tagTestMenu3')
+        assertElementNotPresent('tagTestMenu4')
 
         // Verify that the features have been created in the db
         open('/admin/features')
         waitForPageToLoad(1000)
-        assertElementPresent('sampleMenu1Tr')
-        assertElementPresent('sampleMenu2Tr')
-        assertElementPresent('sampleMenu3Tr')
-        assertElementPresent('sampleMenu4Tr')        
+        assertElementPresent('tagTestMenu1Tr')
+        assertElementPresent('tagTestMenu2Tr')
+        assertElementPresent('tagTestMenu3Tr')
+        assertElementPresent('tagTestMenu4Tr')
 
         // Verify that the features are all OFF
-        assertText('sampleMenu1StatusTd', 'OFF')
-        assertText('sampleMenu2StatusTd', 'OFF')
-        assertText('sampleMenu3StatusTd', 'OFF')
-        assertText('sampleMenu4StatusTd', 'OFF')
+        assertText('tagTestMenu1StatusTd', 'OFF')
+        assertText('tagTestMenu2StatusTd', 'OFF')
+        assertText('tagTestMenu3StatusTd', 'OFF')
+        assertText('tagTestMenu4StatusTd', 'OFF')
 
         // switch on feature 1 and 3
-        click('sampleMenu1Switcher')
+        click('tagTestMenu1Switcher')
         waitForPageToLoad(1000)
-        click('sampleMenu3Switcher')
+        click('tagTestMenu3Switcher')
         waitForPageToLoad(1000)
 
         // Verify that Features 1 and 3 are ON and that 2 and 4 are still OFF
-        assertText('sampleMenu1StatusTd', 'ON')
-        assertText('sampleMenu2StatusTd', 'OFF')
-        assertText('sampleMenu3StatusTd', 'ON')
-        assertText('sampleMenu4StatusTd', 'OFF')
+        assertText('tagTestMenu1StatusTd', 'ON')
+        assertText('tagTestMenu2StatusTd', 'OFF')
+        assertText('tagTestMenu3StatusTd', 'ON')
+        assertText('tagTestMenu4StatusTd', 'OFF')
 
         // Verify that the menu items 1 and 3 are visible, and that item 2 and 4 are invisible
         open('/tagtest')
         waitForPageToLoad(1000)
-        assertElementPresent('sampleMenu1')
-        assertElementNotPresent('sampleMenu2')
-        assertElementPresent('sampleMenu3')
-        assertElementNotPresent('sampleMenu4')
-
+        assertElementPresent('tagTestMenu1')
+        assertElementNotPresent('tagTestMenu2')
+        assertElementPresent('tagTestMenu3')
+        assertElementNotPresent('tagTestMenu4')
 
 #{/selenium}        

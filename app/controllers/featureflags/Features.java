@@ -7,16 +7,16 @@ import java.util.List;
 
 public class Features extends Controller {
 
-    public static void list() {
+    public static void adminPage() {
         List<Feature> features = Feature.findAll();
         render(features);
     }
 
-    public static void flip(Long id) {
+    public static void switchFeature(Long id) {
         Feature feature = Feature.findById(id);
         feature.enabled = !feature.enabled;
         feature.save();
-        list();
+        adminPage();
     }
 
 

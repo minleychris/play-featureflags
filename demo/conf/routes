@@ -1,14 +1,14 @@
-GET     /                                       Application.index
+GET     /                                       Demo.index
+
+# for testing the tags
 GET     /tagtest/?                              TagTestController.showTagTestPage
 
-# ------------------- annotated controllers -----------------------------
-GET     /simpleExample                          SimpleExampleController.showPage
-GET     /classLevelAnnotation/{action}               ClassLevelAnnotatedController.{action}
-GET     /methodLevelAnnotation/{action}              MethodLevelAnnotatedController.{action}
+# for testing the annotations
+GET     /classLevelAnnotation/{action}          ClassLevelAnnotatedController.{action}
+GET     /methodLevelAnnotation/{action}         MethodLevelAnnotatedController.{action}
 
-# ------------------- the Features admin page ---------------------------
+# admin page
 GET     /admin/features                         module:featureflags
 
-# -----------------------------------------------------------------------
+# -----------------------------------------------------------------------------------------------------------
 GET     /public/                                staticDir:public
-*       /{controller}/{action}                  {controller}.{action}
