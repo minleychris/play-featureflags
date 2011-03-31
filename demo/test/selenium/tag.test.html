@@ -1,11 +1,6 @@
-#{fixture delete:'all' /}
+#{fixture delete:'all', load:'selenium/tag.test.yml'/}
 
 #{selenium}
-
-        // assert that a message is displayed when no features exist in the db
-        open('/admin/features')
-        waitForPageToLoad(1000)
-        assertElementPresent('noFeaturesFoundTd')
 
         // Verify that all the menu items are invisible
         open('/tagtest')
@@ -15,7 +10,7 @@
         assertElementNotPresent('tagTestMenu3')
         assertElementNotPresent('tagTestMenu4')
 
-        // Verify that the features have been created in the db
+        // Verify that all the features that have been created are shown in the db
         open('/admin/features')
         waitForPageToLoad(1000)
         assertElementPresent('tagTestMenu1Tr')
@@ -23,7 +18,7 @@
         assertElementPresent('tagTestMenu3Tr')
         assertElementPresent('tagTestMenu4Tr')
 
-        // Verify that the features are all OFF
+        // Verify that the features are all OFF (see tag.test.yml)
         assertText('tagTestMenu1StatusTd', 'OFF')
         assertText('tagTestMenu2StatusTd', 'OFF')
         assertText('tagTestMenu3StatusTd', 'OFF')

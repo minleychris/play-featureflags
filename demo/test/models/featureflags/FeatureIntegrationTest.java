@@ -2,6 +2,7 @@ package models.featureflags;
 
 import org.junit.Before;
 import org.junit.Test;
+import play.Play;
 import play.test.Fixtures;
 import play.test.UnitTest;
 
@@ -32,11 +33,21 @@ public class FeatureIntegrationTest extends UnitTest {
     }
 
     @Test
-    public void isEnabledCreatesNewFeatureInDbIfItDoesntExistAndThenReturnsFalse() {
+    public void isEnabledCreatesNewFeatureInDbIfItDoesntExistAndThenReturnsFalseInProdMode() {
+        Play.mode = Play.Mode.PROD;
         assertDoesntExistInDb(NEW_FEATURE);
         assertFalse(Feature.isEnabled(NEW_FEATURE));
         assertExistsInDb(NEW_FEATURE);
     }
+
+    @Test
+    public void isEnabledCreatesNewFeatureInDbIfItDoesntExistAndThenReturnsTrueInDevMode() {
+        Play.mode = Play.Mode.DEV;
+        assertDoesntExistInDb(NEW_FEATURE);
+        assertTrue(Feature.isEnabled(NEW_FEATURE));
+        assertExistsInDb(NEW_FEATURE);
+    }
+
 
     @Test
     public void enablingAnAlreadyEnabledFeatureDoesntChangeAThing() {

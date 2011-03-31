@@ -23,7 +23,7 @@ public class MethodLevelAnnotatedControllerTest extends FunctionalTest {
 
     @Test
     public void method1ShouldAnswerNotFoundWhenFeature1IsDisabled() {
-        Feature.disable(FEATURE1);
+        Feature.disable(FEATURE1);        
         assertIsNotFound(GET(FEATURE1_ROUTE));
     }
 

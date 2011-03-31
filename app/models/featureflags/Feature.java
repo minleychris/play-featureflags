@@ -1,5 +1,6 @@
 package models.featureflags;
 
+import play.Play;
 import play.db.jpa.Model;
 
 import javax.persistence.Column;
@@ -13,13 +14,10 @@ public class Feature extends Model {
     public boolean enabled;
 
     public Feature(String name) {
-        this(name, false);
+        this.name = name;
+        this.enabled = Play.mode.isDev();
     }
 
-    public Feature(String name, boolean enabled) {
-        this.name = name;
-        this.enabled = enabled;
-    }
 
     private Feature enable() {
         this.enabled = true;
@@ -36,12 +34,12 @@ public class Feature extends Model {
     }
 
 
-    public static void enable(String name) {
-        findByNameOrCreate(name).enable().save();
+    public static Feature enable(String name) {
+        return findByNameOrCreate(name).enable().save();
     }
 
-    public static void disable(String name) {
-        findByNameOrCreate(name).disable().save();
+    public static Feature disable(String name) {
+        return findByNameOrCreate(name).disable().save();
     }
 
     private static Feature findByNameOrCreate(String name) {

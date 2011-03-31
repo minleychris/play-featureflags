@@ -82,7 +82,7 @@
     <table id="featureTable">
 
         <thead>
-        <tr>           
+        <tr>
             <th scope="col" id="featureHeader">Feature</th>
             <th scope="col" id="statusHeader">Status</th>
             <th scope="col" id="changeHeader">Change status</th>
@@ -91,7 +91,7 @@
 
 
         <tbody>
-        #{if features}
+        #{if features}        
         #{list items:features, as:'feature'}
         <tr id="${feature.name}Tr">
             <td id="${feature.name}NameTd">
@@ -108,7 +108,7 @@
                 </a>
             </td>
         </tr>
-        #{/list}
+        #{/list}        
         #{/if}
         #{else}
         <tr>

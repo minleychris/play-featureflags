@@ -2,7 +2,7 @@
 
 <h1 id="doc">Documentation</h1>
 <p>
-    Welcome to the demo app for the featureflags module for playframework.<br/>
+    Welcome to the demo app for the featureflags module for <a href="http://www.playframework.org">Play!</a>.<br/>
     This demo only shows the most basic functionality: the ability to enable and disable features at runtime. For more
     detailed information, please refer to the documentation on the wiki or the <a href="/@tests">test suite</a>.
 </p>
@@ -71,7 +71,7 @@ public static void myActionMethod(){
 @Feature("myFeature")
     public class FeaturedController {
         // all actions in this controller will be
-        // availabe or not, depending on whether
+        // available or not, depending on whether
         // "myFeature" is enabled or not.
 
         public static void action1(){
@@ -100,10 +100,26 @@ public static void myActionMethod(){
         or will send a 404 Not Found response in case of a controller.
     </li>
     <li>
-        The feature does not exist in the database yet: the module will create the feature in the database, and set it
-        to switched OFF. You can then go to the admin page to switch it on.
+        The feature does not exist in the database yet: the module will create the feature in the database. If you are
+        running your Play! app in production mode, it will be switched off. In development mode, it will be switched on.
+        (see <a href="#devVsProd">below</a>).
     </li>
 </ol>
+
+<h2 id="devVsProd">DEV vs PROD mode</h2>
+<p>
+    Since version 0.2 of the module, the module behaves differently in development and production mode.
+</p>
+
+<p>
+    When you run your Play! app in development mode, all features will be turned ON by default. This is very convenient, since
+    you don't want to bothered with switching on features while developing.<br/>
+    You can, of course, still use the admin page to go and switch a feature off if you wish to do so.
+</p>
+<p>
+    However, when in PROD mode, all features that are not known in the db yet, will be switched to OFF by default. This
+    ensures you don't accidentally put features in production that aren't ready yet.
+</p>
 
 <h2>The Admin page</h2>
 <p>
